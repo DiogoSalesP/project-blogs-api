@@ -1,16 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define('BlogPost', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, allowNull: false, altoIncrement: true },
+    id: { type: DataTypes.INTEGER, primaryKey: true },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     user_id: { type: DataTypes.STRING, foreignKey: true },
-    published: DataTypes.DATE,
-    updated: DataTypes.DATE,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
   },
   {
     timestamps: false,
     tableName: 'blog_posts',
-    underscore: true,
+    underscored: true,
   })
 
   BlogPost.associate = (models) => {

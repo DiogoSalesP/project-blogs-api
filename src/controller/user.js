@@ -7,6 +7,13 @@ const getUser = async (req, res) => {
     return res.status(status).json({ token });
 };
 
+const createUser = async (req, res) => {
+  const { isError, status, message, token } = await Service.createUser(req.body);
+  if (isError) return res.status(status).json({ message });
+  return res.status(status).json({ token });
+};
+
 module.exports = {
   getUser,
+  createUser,
 };

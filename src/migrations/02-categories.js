@@ -10,6 +10,5 @@ module.exports = {
 
   down: async (queryInterface, _Sequelize) => {
     await queryInterface.dropTable('categories');
-     
   }
 };
