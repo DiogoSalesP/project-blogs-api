@@ -8,6 +8,16 @@ const createToken = ({ email }) => {
   return jwt.sign(payload, secret, signature);
 };
 
+const verifyToken = (authorization) => {
+  try {
+    const payload = jwt.verify(authorization, secret);
+    return payload;
+  } catch (err) {
+    return { isError: true, err };
+  }
+};
+
 module.exports = {
   createToken,
+  verifyToken,
 };
