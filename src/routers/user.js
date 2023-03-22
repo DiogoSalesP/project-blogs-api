@@ -10,6 +10,7 @@ const {
 
 const user = Router();
 
+user.get('/:id', validateJWT, Controller.getUserById);
 user.get('/', validateJWT, Controller.getAll);
 user.post('/',
   validateUser, validateDisplayName, validateEmail, validatePassword, Controller.createUser);
