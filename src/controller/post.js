@@ -19,8 +19,15 @@ const updateBlogPost = async (req, res) => {
   return res.status(status).json(message);
 };
 
+const deletePost = async (req, res) => {
+  const { isError, status, message } = await Service.deletePost(req.params.id);
+  if (isError) return res.status(status).json({ message });
+  return res.status(status).end();
+};
+
 module.exports = {
   addBlogPost,
   getBlogPostById,
   updateBlogPost,
+  deletePost,
 };
