@@ -24,7 +24,16 @@ const getBlogPostById = async (id) => {
   return { isError: false, status: 200, message: blogPost };
 };
 
+const updateBlogPost = async (id, { title, content }) => {
+  const consulta = await getBlogPostById(id);
+  if (consulta.isError) return consulta;
+  await BlogPost.update({ title, content }, { where: { id } });
+  const resultAtualizada = await getBlogPostById(id);
+  return resultAtualizada;
+};
+
 module.exports = {
   allBlogPost,
   getBlogPostById,
+  updateBlogPost,
 };

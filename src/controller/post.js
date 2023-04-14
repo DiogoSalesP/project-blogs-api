@@ -6,8 +6,15 @@ const addBlogPost = async (_req, res) => {
 };
 
 const getBlogPostById = async (req, res) => {
-  console.log(req.params);
   const { isError, status, message } = await Service.getBlogPostById(req.params.id);
+  if (isError) return res.status(status).json({ message });
+  return res.status(status).json(message);
+};
+
+const updateBlogPost = async (req, res) => {
+  const { id } = req.params;
+  const post = req.body;
+  const { isError, status, message } = await Service.updateBlogPost(id, post);
   if (isError) return res.status(status).json({ message });
   return res.status(status).json(message);
 };
@@ -15,4 +22,5 @@ const getBlogPostById = async (req, res) => {
 module.exports = {
   addBlogPost,
   getBlogPostById,
+  updateBlogPost,
 };
