@@ -14,17 +14,13 @@ Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua cr
 # Boas-vindas ao repositório do Projeto Blogs API!
 
 <summary><strong>👨‍💻 Projeto</strong></summary>
-
-O projeto é um API para gerênciar posts, categories e escritores(users) de um blog. O objetivo foi estudar ORM e JWT. Para estudar ORM escolhi Sequelize visto que é uma tecnologia bem estabelecida no mercado. Neste projeto pude entender que:
-
-Migrations são uma maneira de evoluir a estrutura da banco de dados (tabelas, colunas e relacionamentos) de forma organizada, segura e produtiva;
-Seeds são muito úteis para testes ou pré-popular o banco de dados;
-Transaction servem para garantir a atomicidade do banco de dados;
-Operações são a base de todo ORM. São métodos que facilitam o CRUD;
-JWT é usado para garantir a integridade da mensagem. Garantido que ela não foi adulterada;
-Relacionamentos (1:1, 1:N e N:N) até que são um pouco mais simples com ORM;
+Este projeto é uma API de blogs desenvolvida como parte do curso de Desenvolvimento Web da Trybe, no módulo de Back-end. A API é construída utilizando Node.js, Express e MySQL como banco de dados.
 <br />
-Projeto desenvolvido na Trybe !
+<summary><strong>Objetivo</strong></summary>
+O objetivo deste projeto é construir uma API de blogs que permita aos usuários realizar operações CRUD (Criar, Ler, Atualizar e Deletar) em blogs e comentários associados aos blogs. A API também oferece recursos de autenticação e autorização, onde os usuários podem se registrar, fazer login e gerenciar seus próprios blogs e comentários.
+<br />
+<summary><strong>Configuração do Projeto</strong></summary>
+Siga os passos abaixo para configurar e executar o projeto em seu ambiente local:
 
 <details>
   <summary><strong>🐳 Rodando no Docker vs Localmente</strong></summary>
@@ -74,3 +70,5 @@ Projeto desenvolvido na Trybe !
   <br/>
 
 </details>
+<summary><strong>Autenticação e Autorização</strong></summary>
+A API utiliza autenticação e autorização baseadas em token JWT (JSON Web Token). Para acessar os endpoints protegidos, os usuários precisam enviar um token JWT no header da requisição com a chave "Authorization". O token é gerado no endpoint de login e precisa ser incluído em todas as requisições subsequentes para autenticar o usuário. Além disso, a API possui middlewares que verificam se o usuário possui as permissões necessárias para acessar determinados recursos, garantindo assim a autorização correta das ações realizadas pelos usuários.
